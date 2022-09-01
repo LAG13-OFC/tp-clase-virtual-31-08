@@ -16,12 +16,11 @@ namespace tp_clase_virtual_31_08
         
         static void Main(string[] args)
         {
-            //HOLA  TODO BIEN
             try
             {
-            int CantPersonas = 0;
+                int CantPersonas = 0;
                 WriteLine("\n############################################################################");
-                WriteLine("########>PROGRAMA DE CONTROL DE VACUNACION DE LA CIUDAD LIBERTAD <##########");
+                WriteLine("########> PROGRAMA DE CONTROL DE VACUNACION DE LA CIUDAD LIBERTAD <##########");
                 WriteLine("############################################################################\n");
 
                 Write("Ingrese la cantidad de personas: ");
@@ -95,7 +94,8 @@ namespace tp_clase_virtual_31_08
                 WriteLine("B---> Lista Femenino con 4 dosis");
                 WriteLine("C---> Lista Masculino con 4 dosis");
                 WriteLine("D---> Porcentaje de personas que tienen 3 y 4 Dosis");
-                WriteLine("C---> Listado de persona que no han sido vacunadas (ordenada por dni)\n");
+                WriteLine("E---> Listado de persona que no han sido vacunadas (ordenada por dni)\n");
+                WriteLine("F---> SALIR DEL PROGRAMA");
                 Write("Ingrese una opcion: ");
                 opcion = char.Parse(ReadLine());
                 opcion = char.ToUpper(opcion);
@@ -164,18 +164,43 @@ namespace tp_clase_virtual_31_08
                             Write($"\nLista ordena por DNI de personas que no tomaron vacunas\n");
                             Write($"DNI\tApellido\tNombre\tSexo\tDosis\n\n");
 
-                            Salida(Apellido, Nombre, Sexo, DNI, Dosis);
+                           
+                            SalidaE(Apellido, Nombre, Sexo, DNI, Dosis);
+                            
+
+                            break;
+                        }
+                    case 'F': {
+                            
+                          Environment.Exit(0);
 
                             break;
                         }
                 }
+                WriteLine("ENTER PARA VOLVER ALA MENU");
+                ReadKey();
             }
         }
-       static void Salida( string[] Apellido, string[] Nombre, char[] Sexo, int[] DNI, int[] Dosis)
+       static void SalidaE( string[] Apellido, string[] Nombre, char[] Sexo, int[] DNI, int[] Dosis)
         {
+
             for (i = 0; i < Apellido.Length; i++)
             {
-                WriteLine($"{Apellido[i]}   {Nombre[i]}   {Sexo[i]}  {DNI[i]}   {Dosis[i]}\n");
+                if (Dosis[i] == 0)
+                {
+                    WriteLine($"{Apellido[i]}   {Nombre[i]}   {Sexo[i]}  {DNI[i]}   {Dosis[i]}\n");
+                }
+            }
+        }
+
+        static void Salida(string[] Apellido, string[] Nombre, char[] Sexo, int[] DNI, int[] Dosis)
+        {
+
+            for (i = 0; i < Apellido.Length; i++)
+            {
+                
+                    WriteLine($"{Apellido[i]}   {Nombre[i]}   {Sexo[i]}  {DNI[i]}   {Dosis[i]}\n");
+                
             }
         }
 
@@ -219,8 +244,7 @@ namespace tp_clase_virtual_31_08
             {
                 for (i = 0; i < k; i++)
                 {
-                    if (Dosis[i] == 0)
-                    {
+                    
                         if (DNI[i] > DNI[i + 1])
                         {
                             //DNI
@@ -244,7 +268,7 @@ namespace tp_clase_virtual_31_08
                             Dosis[i] = Dosis[i + 1];
                             Dosis[i + 1] = auxN;
                         }
-                    }
+                    
                 }
             }
         }
