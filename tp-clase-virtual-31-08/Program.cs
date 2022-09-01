@@ -16,7 +16,7 @@ namespace tp_clase_virtual_31_08
         
         static void Main(string[] args)
         {
-            //HOLA
+            //HOLA  TODO BIEN
             try
             {
             int CantPersonas = 0;
